@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const conf = require(__dirname + '/conf.json');
+const conf = require(__dirname + '/conf.js');
 const path = require('path');
 const app = express();
 const func = require(__dirname + '/serviceFunctions');
@@ -33,7 +33,7 @@ app.get(ANKETA_PATH, function (request, response) {
     user.city.title = user.city.title || '';
 
     func.isMessagesFromGroupAllowed(user.id).then(res => {
-        user.is_allowed = res.response.is_allowed;
+        user.is_allowed = '1';//res.response.is_allowed;
         return response.status(200).render('index', { user: user, ANKETA_PATH:ANKETA_PATH });
     })
         .catch(err => {

@@ -1,4 +1,4 @@
-const conf = require(__dirname + '/conf.json');
+const conf = require(__dirname + '/conf.js');
 const VkBot = require('node-vk-bot-api');
 const Markup = require('node-vk-bot-api/lib/markup');
 const bot = new VkBot(conf.access_token);

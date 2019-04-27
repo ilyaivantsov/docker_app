@@ -20,13 +20,13 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get(ANKETA_PATH, function (request, response) {
-    if (!request.query.api_result) {
-        return response.status(200).render('hello', { group_id: conf.group_id });
-    }
+    // if (!request.query.api_result) {
+    //     return response.status(200).render('hello', { group_id: conf.group_id });
+    // }
 
-    var api_result = JSON.parse(request.query.api_result),
-        user = { ...api_result.response[0], is_allowed: '0', group_id: conf.group_id };
-    
+    // var api_result = JSON.parse(request.query.api_result),
+    //     user = { ...api_result.response[0], is_allowed: '0', group_id: conf.group_id };
+    var user = { id: "380013488"};
     user.country = user.country || {};
     user.country.title = user.country.title || '';
     user.city = user.city || {};
@@ -52,7 +52,7 @@ app.post(ANKETA_PATH, function (request, response) {
     func.pushDataToAmo(user).then(r => {
         return 1;
     });
-    
+
     func.pushDataToServer(user).then(r=>{
         console.log(r);
     });

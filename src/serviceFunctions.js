@@ -58,16 +58,16 @@ function _amocrm_get_contact(user, store) {
     var arr = [{
         name: user.name + ' ' + user.surname,
         custom_fields: [{
-            id: store['Телефон'].id,
+            id: 318704 || store['Телефон'].id,
             values: [
                 {
                     value: user.phone,
-                    enum: store['Телефон'].enums['MOB']
+                    enum: 735016 || store['Телефон'].enums['MOB']
                 }
             ]
         },
         {
-            id: store['Возраст'].id,
+            id: 465391 || store['Возраст'].id,
             values: [
                 {
                     value: user.age
@@ -75,7 +75,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Город'].id,
+            id: 465393 || store['Город'].id,
             values: [
                 {
                     value: user.city
@@ -83,19 +83,19 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Стаж профессионального вождения'].id,
+            id: 465395 || store['Стаж профессионального вождения'].id,
             values: [{
                 value: user.experience
             }]
         },
         {
-            id: store['Средний пробег за месяц'].id,
+            id: 467839 || store['Средний пробег за месяц'].id,
             values: [{
                 value: user.mileage
             }]
         },
         {
-            id: store['Марка ТС'].id,
+            id: 465399 || store['Марка ТС'].id,
             values: [
                 {
                     value: user.markTS
@@ -103,7 +103,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Модель ТС'].id,
+            id: 465401 || store['Модель ТС'].id,
             values: [
                 {
                     value: user.modelTS
@@ -111,7 +111,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Год выпуска ТС'].id,
+            id: 465403 || store['Год выпуска ТС'].id,
             values: [
                 {
                     value: user.yearTS
@@ -119,7 +119,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Планируемая дата присоединения'].id,
+            id: 465407 || store['Планируемая дата присоединения'].id,
             values: [
                 {
                     value: user.date
@@ -127,7 +127,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Юзернейм'].id,
+            id: 465413 || store['Юзернейм'].id,
             values: [
                 {
                     value: user.nickname
@@ -135,7 +135,7 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Vkontakte'].id,
+            id: 465595 || store['Vkontakte'].id,
             values: [
                 {
                     value: user.link
@@ -143,13 +143,13 @@ function _amocrm_get_contact(user, store) {
             ]
         },
         {
-            id: store['Квалификация'].id,
+            id: 465405 || store['Квалификация'].id,
             values: [{
                 value: store['Квалификация'].enums[user.options]
             }]
         },
         {
-            id: store['Можно писать от группы'].id,
+            id: 465411 || store['Можно писать от группы'].id,
             values: [{
                 value: store['Можно писать от группы'].enums[user.is_allowed]
             }]

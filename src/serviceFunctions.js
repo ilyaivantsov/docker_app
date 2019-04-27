@@ -51,7 +51,7 @@ function sendUserHelloMsg(user_name, user_id) {
 
 Чтобы продолжить, нажми на кнопку «Узнать подробнее».`;
 
-    bot.sendMessage(user_id, msg, null, keyboard);
+    bot.sendMessage(user_id, msg, null/*, keyboard*/);
 }
 
 function _amocrm_get_contact(user, store) {

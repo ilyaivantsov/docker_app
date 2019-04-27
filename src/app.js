@@ -8,8 +8,8 @@ var Sheet = require(__dirname + '/google-sheet/sheet');
 var authentication = require(__dirname + '/google-sheet/authentication');
 var googleSheet = null;
 
-const ANKETA_PATH = process.env.mustAnketaPath || '/amocrm';
-const port = process.env.mustAnketaPort || 8080;
+const ANKETA_PATH = process.env.ANKETA_PATH || '/amocrm';
+const PORT = process.env.ANKETA_PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -33,7 +33,7 @@ app.get(ANKETA_PATH, function (request, response) {
     user.city.title = user.city.title || '';
 
     func.isMessagesFromGroupAllowed(user.id).then(res => {
-        user.is_allowed = '1';//res.response.is_allowed;
+        user.is_allowed = res.response.is_allowed;
         return response.status(200).render('index', { user: user, ANKETA_PATH:ANKETA_PATH });
     })
         .catch(err => {
@@ -52,6 +52,7 @@ app.post(ANKETA_PATH, function (request, response) {
     func.pushDataToAmo(user).then(r => {
         return 1;
     });
+    
     func.pushDataToServer(user).then(r=>{
         console.log(r);
     });
@@ -74,5 +75,5 @@ app.post(ANKETA_PATH, function (request, response) {
 
 authentication.authenticate().then(auth => {
     googleSheet = new Sheet(auth, conf.spreadsheetId, conf.range);
-    app.listen(port);
+    app.listen(PORT);
 })
